@@ -34,7 +34,7 @@ app.post('/url',async(req,res) => {
        return res.send({message: "invalid URL"})
     } else {
         const urlKey = urlServices.generateUrlKey();
-        const shortUrl = `http://${host}/${urlKey}`
+        const shortUrl = `https://${host}/${urlKey}`
 
         await urlDB.save(url, shortUrl, urlKey)
         return res.status(200).send({ shortUrl });
