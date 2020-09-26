@@ -8,10 +8,10 @@ const urlServices = require('./services/urlService');
 const __config = require('./config/config')
 
 require('dotenv').config();
-// const corsOptions = {
-//     origin: 'http://localhost:4000',
-//     optionsSuccessStatus: 200
-//   }
+const corsOptions = {
+    origin: 'http://localhost:4000',
+    optionsSuccessStatus: 200
+  }
   
   app.use(cors(corsOptions))
   app.use(bodyParser.urlencoded({ extended: true }));
