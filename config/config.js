@@ -1,3 +1,3 @@
 module.exports = {
-    mongo_url: 'mongodb://localhost:27017/test_db'
+    mongo_url: 'mongodb+srv://travelntrek:alliswell@cluster0.blofl.mongodb.net/test?retryWrites=true&w=majority'
 }
