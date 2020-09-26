@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const urlDB  = require('./models/urldb');
+const db = require('./models/URL');
 const urlServices = require('./services/urlService');
 const __config = require('./config/config')
 
@@ -17,7 +18,7 @@ const corsOptions = {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 
-mongoose.connect(process.env.mongo_url,
+mongoose.connect(process.env.MONGO_URL,
     { useNewUrlParser: true, useUnifiedTopology: true
     }).then(() => {
         console.log("Connected to DB");
@@ -59,6 +60,12 @@ app.get("/:shortUrlId", async (req, res) => {
         return res.status(500).send("Something went wrong. Please try again.")
     }
 }); 
+
+app.get('/findUrls', async (req,res) => {
+    db.find({}, (err,result) => {
+        res.json(result)
+    })
+})
 
 
 
