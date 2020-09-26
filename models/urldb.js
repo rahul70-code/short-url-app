@@ -1,7 +1,8 @@
 const URL = require('./URL');
 
 const save = (longURL, shortURL, shortURLId) => {
-    URL.create({ longURL, shortURL, shortURLId })
+    URL.create({ longURL, shortURL, shortURLId,createdAt: new Date().toDateString()
+    })
 };
 
 const search = (shortURLId) => {

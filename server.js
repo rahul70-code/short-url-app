@@ -4,19 +4,20 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const urlDB  = require('./models/urldb');
-const urlServices = require('./services/urlService')
+const urlServices = require('./services/urlService');
+const __config = require('./config/config')
 
 require('dotenv').config();
-const corsOptions = {
-    origin: 'http://localhost:4000',
-    optionsSuccessStatus: 200
-  }
+// const corsOptions = {
+//     origin: 'http://localhost:4000',
+//     optionsSuccessStatus: 200
+//   }
   
   app.use(cors(corsOptions))
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGO_URL,
+mongoose.connect(__config.mongo_url,
     { useNewUrlParser: true, useUnifiedTopology: true
     }).then(() => {
         console.log("Connected to DB");
