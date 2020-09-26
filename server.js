@@ -17,7 +17,7 @@ const corsOptions = {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 
-mongoose.connect(__config.mongo_url,
+mongoose.connect(process.env.mongo_url,
     { useNewUrlParser: true, useUnifiedTopology: true
     }).then(() => {
         console.log("Connected to DB");
