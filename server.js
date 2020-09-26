@@ -21,7 +21,8 @@ mongoose.connect(__config.mongo_url,
     { useNewUrlParser: true, useUnifiedTopology: true
     }).then(() => {
         console.log("Connected to DB");
-    }).catch(() => {
+    }).catch(err => {
+        console.log(err)
         console.log("Error in connecting to DB")
     });
 mongoose.set('useCreateIndex', true)
